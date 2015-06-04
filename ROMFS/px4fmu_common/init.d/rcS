@@ -158,6 +158,7 @@ then
 fi
 sensors start
 commander start
+echo "commander started!"
 
 ######################
 # Start primary output
@@ -231,7 +232,7 @@ mc_pos_control start
 land_detector start multicopter
 
 # Start the navigator
-navigator start
+#navigator start
 
 #########################
 # Start any custom addons

@@ -170,8 +170,6 @@ arming_state_transition(struct vehicle_status_s *status,		///< current vehicle s
 					// Fail transition if we need safety switch press
 					} else if (safety->safety_switch_available && !safety->safety_off) {
 
-					    printf("inside safety check.\n");
-
 						mavlink_log_critical(mavlink_fd, "NOT ARMING: Press safety switch first!");
 						feedback_provided = true;
 						valid_transition = false;
@@ -684,5 +682,12 @@ int prearm_check(const struct vehicle_status_s *status, const int mavlink_fd)
 	/* at this point this equals the preflight check, but might add additional
 	 * quantities later.
 	 */
-	return !Commander::preflightCheck(mavlink_fd, true, true, true, true, false, true, true);
+	bool checkAirspeed = false;
+	/* Perform airspeed check only if circuit breaker is not
+	 * engaged and it's not a rotary wing */
+	if (!status->circuit_breaker_engaged_airspd_check && !status->is_rotary_wing) {
+		checkAirspeed = true;
+	}
+
+	return !Commander::preflightCheck(mavlink_fd, true, true, true, true, checkAirspeed, true, true);
 }

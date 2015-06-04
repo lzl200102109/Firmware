@@ -48,10 +48,9 @@ MODULES		+= systemcmds/ver
 # General system control
 #
 MODULES		+= modules/commander
-MODULES		+= modules/navigator
+#MODULES		+= modules/navigator
 MODULES		+= modules/mavlink
 MODULES		+= modules/gpio_led
-MODULES		+= modules/uavcan
 MODULES 	+= modules/land_detector
 
 #
@@ -59,13 +58,13 @@ MODULES 	+= modules/land_detector
 #
 MODULES		+= modules/attitude_estimator_ekf
 MODULES		+= modules/position_estimator_inav
+MODULES		+= modules/flow_position_estimator
 
 #
 # Vehicle Control
 #
 MODULES		+= modules/mc_att_control
 MODULES		+= modules/mc_pos_control
-MODULES 	+= modules/vtol_att_control
 
 #
 # Logging
@@ -98,12 +97,7 @@ MODULES		+= platforms/nuttx
 #
 # OBC challenge
 #
-MODULES		+= modules/bottle_drop
-
-#
-# PX4 flow estimator, good for indoors
-#
-MODULES		+= examples/flow_position_estimator
+#MODULES		+= modules/bottle_drop
 
 #
 # Demo apps
