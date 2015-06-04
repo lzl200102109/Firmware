@@ -401,6 +401,8 @@ int commander_thread_main(int argc, char *argv[])
 
         arming_ret = TRANSITION_NOT_CHANGED;
 
+        status.is_rotary_wing = true;
+
         /* ***********************
          * Subscribe topics
          * ***********************/
