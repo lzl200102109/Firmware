@@ -365,6 +365,7 @@ int commander_thread_main(int argc, char *argv[])
 	// We want to accept RC inputs as default
 	status.rc_input_blocked = false;
 	status.main_state =vehicle_status_s::MAIN_STATE_MANUAL;
+	status.nav_state = vehicle_status_s::NAVIGATION_STATE_MANUAL;
 	status.arming_state = vehicle_status_s::ARMING_STATE_INIT;
 	status.failsafe = false;
 
